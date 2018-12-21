@@ -1,0 +1,153 @@
+﻿
+@model WebApplication1.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="back-link back-backend">
+        <a href="/Home/Index/" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+</div>
+<h1>ลงทะเบียน</h1>
+<div>
+    @*<a class="btn btn btn-info" style="margin-bottom:20px" @Html.ActionLink("กลับไปหน้าแรก", "Index")</a>*@
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group  col-xs-12">
+            <div class="col-xs-6">       
+                <label class="col-lg-4 control-label">ชื่อเข้าระบบ  <span class="text-red" style="color:red;"> * </span></label>
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.C_id, new { @class = "form-control", placeholder = "", type = "number", @maxlength = 10, id = "txtC_id", style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.C_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-lg-4 control-label">รหัสผ่าน <span class="text-red" style="color:red;"> * </span></label>
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.C_pwd, new { @class = "form-control", @maxlength = 100, id = "txtC_pwd", @placeholder = "", @type = "text", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.C_pwd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-lg-12">
+            <div class="col-xs-6">
+
+                <label class="col-lg-4 control-label">ชื่อ-สกุล </label>
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.C_name, new { @class = "form-control", @maxlength = 10, id = "txtC_name", @type = "text", @placeholder = "", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.C_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-lg-4 control-label">ที่อยู่ </label>
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextAreaFor(model => model.C_address, new { @class = "form-control input-sm", @type = "text", @maxlength = 50, id = "txtC_address", @placeholder = "", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.C_address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>      
+        <div class="form-group col-lg-12">        
+            <div class="col-xs-6">        
+                <label class="col-lg-4 control-label">เบอร์โทรศัพท์ <span class="text-red" style="color:red;"> * </span></label>
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.C_tel, new { @class = "form-control", @maxlength = 100, style = "width: 500px", rows = "3", @type = "number", @tabindex = 1, id = "txtC_tel" })
+                    @Html.ValidationMessageFor(model => model.C_tel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                @*@Html.LabelFor(model => model.C_email, new { @class = "col-lg-4 control-label" })*@
+                <label class="col-lg-4 control-label">อีเมล์ </label>
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => Model.C_email, new { @class = "form-control", id = "txtC_email", maxlength = 120, @placeholder = "", @type = "email", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.C_email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-lg-12">
+            <div class="col-xs-6">
+                @*@Html.LabelFor(model => model.C_sex, new { @class = "control-label col-lg-4 " })*@
+                <label class="col-lg-4 control-label">เพศ </label>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="checkbox-inline i-checks pull-left">
+                        @Html.RadioButtonFor(model => model.C_sex, "Male", new { @class = "ace input-lg", @checked = "checked" })
+                        @Html.ValidationMessageFor(model => model.C_sex, "", new { @class = "text-danger" })
+                        <span class="lbl bigger-120 vsm-radio ie-checkbox">ชาย </span>
+                    </div>
+                    <div class="checkbox-inline i-checks pull-left">
+                        @Html.RadioButtonFor(model => model.C_sex, "Female", new { @class = "ace input-lg", @checked = "checked" })
+                        @Html.ValidationMessageFor(model => model.C_sex, "", new { @class = "text-danger" })
+                        <span class="lbl bigger-120 vsm-radio ie-checkbox">หญิง </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-xs-12">
+            <div class="form-group  col-xs-12 text-center">
+                <input type="submit" value="บันทึก" class="btn btn-success btn-rounded" />
+                <input type="reset" id="reset" value="ยกเลิก" class="btn btn-danger btn-rounded" />
+                @*<button class="btn btn-success btn-rounded" type="submit" id="btnSubmit" tabindex="6"><i class="glyphicon glyphicon-floppy-disk"></i> บันทึก</button>
+                    <button class="btn btn-danger btn-rounded" type="button" id="btnClear" onclick="FunReloadPage('@Url.Action("MST001_E", "MST001")');" tabindex="6"><i class="glyphicon glyphicon-refresh"></i> ล้างข้อมูล</button>*@
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+        //set maxlength
+        $('#txtC_id').keypress(function () {
+            if (this.value.length >= 10)
+                return false;
+        });
+        $('#txtE_name').keypress(function () {
+            if (this.value.length >= 100)
+                return false;
+        });
+        $('#txtC_email').keypress(function () {
+            if (this.value.length >= 120)
+                return false;
+        });
+        $('#txtC_sex').keypress(function () {
+            if (this.value.length >= 100)
+                return false;
+        });
+        $('#txtC_address').keypress(function () {
+            if (this.value.length >= 50)
+                return false;
+        });
+        $('#txtC_tel').keypress(function () {
+            if (this.value.length >= 100)
+                return false;
+        });
+        $('#txtC_name').keypress(function () {
+            if (this.value.length >= 10)
+                return false;
+        });
+
+        $("#reset").click(function () {
+            $("#maincont").load("/Employee/Create/");
+        });
+
+        });
+
+    </script>
+
+
+}

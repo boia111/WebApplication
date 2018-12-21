@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBaseMasModelStoreContainer" CdmEntityContainer="DBModel">
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Agent">
+        <MappingFragment StoreEntitySet="Agent">
+          <ScalarProperty Name="A_id" ColumnName="A_id" />
+          <ScalarProperty Name="A_name" ColumnName="A_name" />
+          <ScalarProperty Name="A_address" ColumnName="A_address" />
+          <ScalarProperty Name="A_tel" ColumnName="A_tel" />
+          <ScalarProperty Name="A_Email" ColumnName="A_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfirmDetailPays">
+      <EntityTypeMapping TypeName="DataBaseMasModel.ConfirmDetailPay">
+        <MappingFragment StoreEntitySet="ConfirmDetailPay">
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="Con_det_nameBank" ColumnName="Con_det_nameBank" />
+          <ScalarProperty Name="Con_det_number" ColumnName="Con_det_number" />
+          <ScalarProperty Name="Con_det_manney" ColumnName="Con_det_manney" />
+          <ScalarProperty Name="Con_det_Date" ColumnName="Con_det_Date" />
+          <ScalarProperty Name="Con_det_picture" ColumnName="Con_det_picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Datapays">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Datapay">
+        <MappingFragment StoreEntitySet="Datapay">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="p_monney" ColumnName="p_monney" />
+          <ScalarProperty Name="p_dat" ColumnName="p_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="E_id" ColumnName="E_id" />
+          <ScalarProperty Name="E_name" ColumnName="E_name" />
+          <ScalarProperty Name="E_address" ColumnName="E_address" />
+          <ScalarProperty Name="E_tel" ColumnName="E_tel" />
+          <ScalarProperty Name="E_Email" ColumnName="E_Email" />
+          <ScalarProperty Name="E_User" ColumnName="E_User" />
+          <ScalarProperty Name="E_pwd" ColumnName="E_pwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pays">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Pay">
+        <MappingFragment StoreEntitySet="Pay">
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="p_manney" ColumnName="p_manney" />
+          <ScalarProperty Name="p_Date" ColumnName="p_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaysupDetails">
+      <EntityTypeMapping TypeName="DataBaseMasModel.PaysupDetail">
+        <MappingFragment StoreEntitySet="PaysupDetail">
+          <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+          <ScalarProperty Name="Tak_id" ColumnName="Tak_id" />
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="Pro_name" ColumnName="Pro_name" />
+          <ScalarProperty Name="Pay_det_pricenum" ColumnName="Pay_det_pricenum" />
+          <ScalarProperty Name="Pay_det_sum" ColumnName="Pay_det_sum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="P_name" ColumnName="P_name" />
+          <ScalarProperty Name="P_Pic" ColumnName="P_Pic" />
+          <ScalarProperty Name="P_Detail" ColumnName="P_Detail" />
+          <ScalarProperty Name="P_Price" ColumnName="P_Price" />
+          <ScalarProperty Name="P_Size" ColumnName="P_Size" />
+          <ScalarProperty Name="P_Sale" ColumnName="P_Sale" />
+          <ScalarProperty Name="P_Weight" ColumnName="P_Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="DataBaseMasModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductType">
+          <ScalarProperty Name="PT_id" ColumnName="PT_id" />
+          <ScalarProperty Name="PT_name" ColumnName="PT_name" />
+          <ScalarProperty Name="PT_Weight" ColumnName="PT_Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiveProducts">
+      <EntityTypeMapping TypeName="DataBaseMasModel.ReceiveProduct">
+        <MappingFragment StoreEntitySet="ReceiveProduct">
+          <ScalarProperty Name="Re_pro_id" ColumnName="Re_pro_id" />
+          <ScalarProperty Name="E_id" ColumnName="E_id" />
+          <ScalarProperty Name="A_id" ColumnName="A_id" />
+          <ScalarProperty Name="Re_pro_net" ColumnName="Re_pro_net" />
+          <ScalarProperty Name="Re_pro_date" ColumnName="Re_pro_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receiveProductTypes">
+      <EntityTypeMapping TypeName="DataBaseMasModel.receiveProductType">
+        <MappingFragment StoreEntitySet="receiveProductType">
+          <ScalarProperty Name="Re_pro_id" ColumnName="Re_pro_id" />
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="Re_pro_amount" ColumnName="Re_pro_amount" />
+          <ScalarProperty Name="Re_price" ColumnName="Re_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaDataSaleDetailles">
+      <EntityTypeMapping TypeName="DataBaseMasModel.SaDataSaleDetaille">
+        <MappingFragment StoreEntitySet="SaDataSaleDetaille">
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="Sd_amount" ColumnName="Sd_amount" />
+          <ScalarProperty Name="Sale_total" ColumnName="Sale_total" />
+          <ScalarProperty Name="Sale_exp" ColumnName="Sale_exp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Sale">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="E_id" ColumnName="E_id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="S_net" ColumnName="S_net" />
+          <ScalarProperty Name="S_date" ColumnName="S_date" />
+          <ScalarProperty Name="Sd_pay" ColumnName="Sd_pay" />
+          <ScalarProperty Name="Sd_date" ColumnName="Sd_date" />
+          <ScalarProperty Name="Sd_amount" ColumnName="Sd_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScrapeDetails">
+      <EntityTypeMapping TypeName="DataBaseMasModel.ScrapeDetail">
+        <MappingFragment StoreEntitySet="ScrapeDetail">
+          <ScalarProperty Name="Scrape_id" ColumnName="Scrape_id" />
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="Scrape_amount" ColumnName="Scrape_amount" />
+          <ScalarProperty Name="Scrape_reason" ColumnName="Scrape_reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SentProducts">
+      <EntityTypeMapping TypeName="DataBaseMasModel.SentProduct">
+        <MappingFragment StoreEntitySet="SentProduct">
+          <ScalarProperty Name="Sent_id" ColumnName="Sent_id" />
+          <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="Tra_Total" ColumnName="Tra_Total" />
+          <ScalarProperty Name="Sent_pay" ColumnName="Sent_pay" />
+          <ScalarProperty Name="Sent_Date" ColumnName="Sent_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SentProductDetails">
+      <EntityTypeMapping TypeName="DataBaseMasModel.SentProductDetail">
+        <MappingFragment StoreEntitySet="SentProductDetail">
+          <ScalarProperty Name="Sent_id" ColumnName="Sent_id" />
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="Pt_id" ColumnName="Pt_id" />
+          <ScalarProperty Name="Pro_name" ColumnName="Pro_name" />
+          <ScalarProperty Name="Sen_pro_number" ColumnName="Sen_pro_number" />
+          <ScalarProperty Name="Sen_pro_total" ColumnName="Sen_pro_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TakeGoods">
+      <EntityTypeMapping TypeName="DataBaseMasModel.TakeGood">
+        <MappingFragment StoreEntitySet="TakeGoods">
+          <ScalarProperty Name="Tak_id" ColumnName="Tak_id" />
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+          <ScalarProperty Name="Tak_Sum" ColumnName="Tak_Sum" />
+          <ScalarProperty Name="Tak_date" ColumnName="Tak_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TakeGoodsDetails">
+      <EntityTypeMapping TypeName="DataBaseMasModel.TakeGoodsDetail">
+        <MappingFragment StoreEntitySet="TakeGoodsDetail">
+          <ScalarProperty Name="Tak_id" ColumnName="Tak_id" />
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="Pro_name" ColumnName="Pro_name" />
+          <ScalarProperty Name="Tak_Det_num" ColumnName="Tak_Det_num" />
+          <ScalarProperty Name="Tak_Det_Total" ColumnName="Tak_Det_Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="DataBaseMasModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="C_email" ColumnName="C_email" />
+          <ScalarProperty Name="C_tel" ColumnName="C_tel" />
+          <ScalarProperty Name="C_address" ColumnName="C_address" />
+          <ScalarProperty Name="C_sex" ColumnName="C_sex" />
+          <ScalarProperty Name="C_name" ColumnName="C_name" />
+          <ScalarProperty Name="C_pwd" ColumnName="C_pwd" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogings">
+      <EntityTypeMapping TypeName="DataBaseMasModel.UserLoging">
+        <MappingFragment StoreEntitySet="UserLoging">
+          <ScalarProperty Name="Passworduser" ColumnName="Passworduser" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

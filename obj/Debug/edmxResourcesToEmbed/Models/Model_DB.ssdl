@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseMasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="A_id" />
+    </Key>
+    <Property Name="A_id" Type="int" Nullable="false" />
+    <Property Name="A_name" Type="char" MaxLength="50" />
+    <Property Name="A_address" Type="varchar" MaxLength="50" />
+    <Property Name="A_tel" Type="int" />
+    <Property Name="A_Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ConfirmDetailPay">
+    <Key>
+      <PropertyRef Name="P_id" />
+    </Key>
+    <Property Name="P_id" Type="int" Nullable="false" />
+    <Property Name="S_id" Type="int" />
+    <Property Name="Con_det_nameBank" Type="varchar" MaxLength="100" />
+    <Property Name="Con_det_number" Type="int" />
+    <Property Name="Con_det_manney" Type="int" />
+    <Property Name="Con_det_Date" Type="datetime" />
+    <Property Name="Con_det_picture" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="C_id" />
+    </Key>
+    <Property Name="C_id" Type="int" Nullable="false" />
+    <Property Name="C_pwd" Type="char" MaxLength="16" />
+    <Property Name="C_name" Type="varchar" MaxLength="50" />
+    <Property Name="C_sex" Type="varchar" MaxLength="20" />
+    <Property Name="C_address" Type="varchar" MaxLength="50" />
+    <Property Name="C_tel" Type="int" />
+    <Property Name="C_email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Datapay">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="E_Id" Type="int" />
+    <Property Name="a_Id" Type="int" />
+    <Property Name="p_monney" Type="int" />
+    <Property Name="p_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="E_id" />
+    </Key>
+    <Property Name="E_id" Type="int" Nullable="false" />
+    <Property Name="E_name" Type="char" MaxLength="100" />
+    <Property Name="E_address" Type="varchar" MaxLength="120" />
+    <Property Name="E_tel" Type="int" />
+    <Property Name="E_Email" Type="varchar" MaxLength="100" />
+    <Property Name="E_User" Type="char" MaxLength="50" />
+    <Property Name="E_pwd" Type="char" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Pay">
+    <Key>
+      <PropertyRef Name="P_id" />
+    </Key>
+    <Property Name="P_id" Type="int" Nullable="false" />
+    <Property Name="S_id" Type="int" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="p_manney" Type="int" />
+    <Property Name="p_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PaysupDetail">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="int" Nullable="false" />
+    <Property Name="Tak_id" Type="int" />
+    <Property Name="P_id" Type="int" />
+    <Property Name="Pro_name" Type="varchar" MaxLength="100" />
+    <Property Name="Pay_det_pricenum" Type="int" />
+    <Property Name="Pay_det_sum" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="P_id" />
+    </Key>
+    <Property Name="P_id" Type="int" Nullable="false" />
+    <Property Name="P_name" Type="char" MaxLength="50" />
+    <Property Name="P_Pic" Type="varchar" MaxLength="50" />
+    <Property Name="P_Detail" Type="varchar" MaxLength="500" />
+    <Property Name="P_Price" Type="int" />
+    <Property Name="P_Size" Type="varchar" MaxLength="100" />
+    <Property Name="P_Sale" Type="varchar" MaxLength="100" />
+    <Property Name="P_Weight" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="PT_id" />
+    </Key>
+    <Property Name="PT_id" Type="int" Nullable="false" />
+    <Property Name="PT_name" Type="char" MaxLength="50" />
+    <Property Name="PT_Weight" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ReceiveProduct">
+    <Key>
+      <PropertyRef Name="Re_pro_id" />
+    </Key>
+    <Property Name="Re_pro_id" Type="int" Nullable="false" />
+    <Property Name="E_id" Type="int" />
+    <Property Name="A_id" Type="int" />
+    <Property Name="Re_pro_net" Type="int" />
+    <Property Name="Re_pro_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="receiveProductType">
+    <Key>
+      <PropertyRef Name="Re_pro_id" />
+    </Key>
+    <Property Name="Re_pro_id" Type="int" Nullable="false" />
+    <Property Name="P_id" Type="int" />
+    <Property Name="Re_pro_amount" Type="int" />
+    <Property Name="Re_price" Type="decimal" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="SaDataSaleDetaille">
+    <Key>
+      <PropertyRef Name="S_id" />
+    </Key>
+    <Property Name="S_id" Type="int" Nullable="false" />
+    <Property Name="P_id" Type="int" />
+    <Property Name="Sd_amount" Type="int" />
+    <Property Name="Sale_total" Type="int" />
+    <Property Name="Sale_exp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="S_id" />
+    </Key>
+    <Property Name="S_id" Type="int" Nullable="false" />
+    <Property Name="E_id" Type="int" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="S_net" Type="int" />
+    <Property Name="S_date" Type="datetime" />
+    <Property Name="Sd_pay" Type="datetime" />
+    <Property Name="Sd_date" Type="datetime" />
+    <Property Name="Sd_amount" Type="int" />
+  </EntityType>
+  <EntityType Name="ScrapeDetail">
+    <Key>
+      <PropertyRef Name="Scrape_id" />
+    </Key>
+    <Property Name="Scrape_id" Type="int" Nullable="false" />
+    <Property Name="P_id" Type="int" />
+    <Property Name="Scrape_amount" Type="int" />
+    <Property Name="Scrape_reason" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SentProduct">
+    <Key>
+      <PropertyRef Name="Sent_id" />
+    </Key>
+    <Property Name="Sent_id" Type="int" Nullable="false" />
+    <Property Name="A_Id" Type="int" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="Tra_Total" Type="int" />
+    <Property Name="Sent_pay" Type="varchar" MaxLength="100" />
+    <Property Name="Sent_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SentProductDetail">
+    <Key>
+      <PropertyRef Name="Sent_id" />
+    </Key>
+    <Property Name="Sent_id" Type="int" Nullable="false" />
+    <Property Name="P_id" Type="int" />
+    <Property Name="Pt_id" Type="int" />
+    <Property Name="Pro_name" Type="varchar" MaxLength="100" />
+    <Property Name="Sen_pro_number" Type="int" />
+    <Property Name="Sen_pro_total" Type="int" />
+  </EntityType>
+  <EntityType Name="TakeGoods">
+    <Key>
+      <PropertyRef Name="Tak_id" />
+    </Key>
+    <Property Name="Tak_id" Type="int" Nullable="false" />
+    <Property Name="a_Id" Type="int" />
+    <Property Name="E_Id" Type="int" />
+    <Property Name="Tak_Sum" Type="int" />
+    <Property Name="Tak_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TakeGoodsDetail">
+    <Key>
+      <PropertyRef Name="Tak_id" />
+    </Key>
+    <Property Name="Tak_id" Type="int" Nullable="false" />
+    <Property Name="P_id" Type="int" />
+    <Property Name="Pro_name" Type="varchar" MaxLength="100" />
+    <Property Name="Tak_Det_num" Type="int" />
+    <Property Name="Tak_Det_Total" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DataBaseMas.dbo.UserLoging' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserLoging">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Passworduser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_PaysupDetail_TakeGoods">
+    <End Role="PaysupDetail" Type="Self.PaysupDetail" Multiplicity="0..1" />
+    <End Role="PaysupDetail1" Type="Self.PaysupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaysupDetail">
+        <PropertyRef Name="pay_id" />
+      </Principal>
+      <Dependent Role="PaysupDetail1">
+        <PropertyRef Name="Tak_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScrapeDetail_ScrapeDetail">
+    <End Role="ScrapeDetail" Type="Self.ScrapeDetail" Multiplicity="1" />
+    <End Role="ScrapeDetail1" Type="Self.ScrapeDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ScrapeDetail">
+        <PropertyRef Name="Scrape_id" />
+      </Principal>
+      <Dependent Role="ScrapeDetail1">
+        <PropertyRef Name="Scrape_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataBaseMasModelStoreContainer">
+    <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConfirmDetailPay" EntityType="Self.ConfirmDetailPay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Datapay" EntityType="Self.Datapay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pay" EntityType="Self.Pay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaysupDetail" EntityType="Self.PaysupDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceiveProduct" EntityType="Self.ReceiveProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="receiveProductType" EntityType="Self.receiveProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaDataSaleDetaille" EntityType="Self.SaDataSaleDetaille" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScrapeDetail" EntityType="Self.ScrapeDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SentProduct" EntityType="Self.SentProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SentProductDetail" EntityType="Self.SentProductDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TakeGoods" EntityType="Self.TakeGoods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TakeGoodsDetail" EntityType="Self.TakeGoodsDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLoging" EntityType="Self.UserLoging" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserLoging].[ID] AS [ID], 
+    [UserLoging].[Username] AS [Username], 
+    [UserLoging].[Passworduser] AS [Passworduser]
+    FROM [dbo].[UserLoging] AS [UserLoging]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_PaysupDetail_TakeGoods" Association="Self.FK_PaysupDetail_TakeGoods">
+      <End Role="PaysupDetail" EntitySet="PaysupDetail" />
+      <End Role="PaysupDetail1" EntitySet="PaysupDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScrapeDetail_ScrapeDetail" Association="Self.FK_ScrapeDetail_ScrapeDetail">
+      <End Role="ScrapeDetail" EntitySet="ScrapeDetail" />
+      <End Role="ScrapeDetail1" EntitySet="ScrapeDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

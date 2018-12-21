@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataBaseMasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="A_id" />
+          </Key>
+          <Property Name="A_id" Type="int" Nullable="false" />
+          <Property Name="A_name" Type="char" MaxLength="50" />
+          <Property Name="A_address" Type="varchar" MaxLength="50" />
+          <Property Name="A_tel" Type="int" />
+          <Property Name="A_Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ConfirmDetailPay">
+          <Key>
+            <PropertyRef Name="P_id" />
+          </Key>
+          <Property Name="P_id" Type="int" Nullable="false" />
+          <Property Name="S_id" Type="int" />
+          <Property Name="Con_det_nameBank" Type="varchar" MaxLength="100" />
+          <Property Name="Con_det_number" Type="int" />
+          <Property Name="Con_det_manney" Type="int" />
+          <Property Name="Con_det_Date" Type="datetime" />
+          <Property Name="Con_det_picture" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="int" Nullable="false" />
+          <Property Name="C_pwd" Type="char" MaxLength="16" />
+          <Property Name="C_name" Type="varchar" MaxLength="50" />
+          <Property Name="C_sex" Type="varchar" MaxLength="20" />
+          <Property Name="C_address" Type="varchar" MaxLength="50" />
+          <Property Name="C_tel" Type="int" />
+          <Property Name="C_email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Datapay">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="int" Nullable="false" />
+          <Property Name="E_Id" Type="int" />
+          <Property Name="a_Id" Type="int" />
+          <Property Name="p_monney" Type="int" />
+          <Property Name="p_dat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="E_id" />
+          </Key>
+          <Property Name="E_id" Type="int" Nullable="false" />
+          <Property Name="E_name" Type="char" MaxLength="100" />
+          <Property Name="E_address" Type="varchar" MaxLength="120" />
+          <Property Name="E_tel" Type="int" />
+          <Property Name="E_Email" Type="varchar" MaxLength="100" />
+          <Property Name="E_User" Type="char" MaxLength="50" />
+          <Property Name="E_pwd" Type="char" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="P_id" />
+          </Key>
+          <Property Name="P_id" Type="int" Nullable="false" />
+          <Property Name="S_id" Type="int" />
+          <Property Name="C_id" Type="int" />
+          <Property Name="p_manney" Type="int" />
+          <Property Name="p_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PaysupDetail">
+          <Key>
+            <PropertyRef Name="pay_id" />
+          </Key>
+          <Property Name="pay_id" Type="int" Nullable="false" />
+          <Property Name="Tak_id" Type="int" />
+          <Property Name="P_id" Type="int" />
+          <Property Name="Pro_name" Type="varchar" MaxLength="100" />
+          <Property Name="Pay_det_pricenum" Type="int" />
+          <Property Name="Pay_det_sum" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="P_id" />
+          </Key>
+          <Property Name="P_id" Type="int" Nullable="false" />
+          <Property Name="P_name" Type="char" MaxLength="50" />
+          <Property Name="P_Pic" Type="varchar" MaxLength="50" />
+          <Property Name="P_Detail" Type="varchar" MaxLength="500" />
+          <Property Name="P_Price" Type="int" />
+          <Property Name="P_Size" Type="varchar" MaxLength="100" />
+          <Property Name="P_Sale" Type="varchar" MaxLength="100" />
+          <Property Name="P_Weight" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="PT_id" />
+          </Key>
+          <Property Name="PT_id" Type="int" Nullable="false" />
+          <Property Name="PT_name" Type="char" MaxLength="50" />
+          <Property Name="PT_Weight" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ReceiveProduct">
+          <Key>
+            <PropertyRef Name="Re_pro_id" />
+          </Key>
+          <Property Name="Re_pro_id" Type="int" Nullable="false" />
+          <Property Name="E_id" Type="int" />
+          <Property Name="A_id" Type="int" />
+          <Property Name="Re_pro_net" Type="int" />
+          <Property Name="Re_pro_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="receiveProductType">
+          <Key>
+            <PropertyRef Name="Re_pro_id" />
+          </Key>
+          <Property Name="Re_pro_id" Type="int" Nullable="false" />
+          <Property Name="P_id" Type="int" />
+          <Property Name="Re_pro_amount" Type="int" />
+          <Property Name="Re_price" Type="decimal" Precision="12" Scale="2" />
+        </EntityType>
+        <EntityType Name="SaDataSaleDetaille">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="int" Nullable="false" />
+          <Property Name="P_id" Type="int" />
+          <Property Name="Sd_amount" Type="int" />
+          <Property Name="Sale_total" Type="int" />
+          <Property Name="Sale_exp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="int" Nullable="false" />
+          <Property Name="E_id" Type="int" />
+          <Property Name="C_id" Type="int" />
+          <Property Name="S_net" Type="int" />
+          <Property Name="S_date" Type="datetime" />
+          <Property Name="Sd_pay" Type="datetime" />
+          <Property Name="Sd_date" Type="datetime" />
+          <Property Name="Sd_amount" Type="int" />
+        </EntityType>
+        <EntityType Name="ScrapeDetail">
+          <Key>
+            <PropertyRef Name="Scrape_id" />
+          </Key>
+          <Property Name="Scrape_id" Type="int" Nullable="false" />
+          <Property Name="P_id" Type="int" />
+          <Property Name="Scrape_amount" Type="int" />
+          <Property Name="Scrape_reason" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SentProduct">
+          <Key>
+            <PropertyRef Name="Sent_id" />
+          </Key>
+          <Property Name="Sent_id" Type="int" Nullable="false" />
+          <Property Name="A_Id" Type="int" />
+          <Property Name="C_id" Type="int" />
+          <Property Name="Tra_Total" Type="int" />
+          <Property Name="Sent_pay" Type="varchar" MaxLength="100" />
+          <Property Name="Sent_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SentProductDetail">
+          <Key>
+            <PropertyRef Name="Sent_id" />
+          </Key>
+          <Property Name="Sent_id" Type="int" Nullable="false" />
+          <Property Name="P_id" Type="int" />
+          <Property Name="Pt_id" Type="int" />
+          <Property Name="Pro_name" Type="varchar" MaxLength="100" />
+          <Property Name="Sen_pro_number" Type="int" />
+          <Property Name="Sen_pro_total" Type="int" />
+        </EntityType>
+        <EntityType Name="TakeGoods">
+          <Key>
+            <PropertyRef Name="Tak_id" />
+          </Key>
+          <Property Name="Tak_id" Type="int" Nullable="false" />
+          <Property Name="a_Id" Type="int" />
+          <Property Name="E_Id" Type="int" />
+          <Property Name="Tak_Sum" Type="int" />
+          <Property Name="Tak_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TakeGoodsDetail">
+          <Key>
+            <PropertyRef Name="Tak_id" />
+          </Key>
+          <Property Name="Tak_id" Type="int" Nullable="false" />
+          <Property Name="P_id" Type="int" />
+          <Property Name="Pro_name" Type="varchar" MaxLength="100" />
+          <Property Name="Tak_Det_num" Type="int" />
+          <Property Name="Tak_Det_Total" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DataBaseMas.dbo.UserLoging' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserLoging">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Passworduser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_PaysupDetail_TakeGoods">
+          <End Role="PaysupDetail" Type="Self.PaysupDetail" Multiplicity="0..1" />
+          <End Role="PaysupDetail1" Type="Self.PaysupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaysupDetail">
+              <PropertyRef Name="pay_id" />
+            </Principal>
+            <Dependent Role="PaysupDetail1">
+              <PropertyRef Name="Tak_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScrapeDetail_ScrapeDetail">
+          <End Role="ScrapeDetail" Type="Self.ScrapeDetail" Multiplicity="1" />
+          <End Role="ScrapeDetail1" Type="Self.ScrapeDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ScrapeDetail">
+              <PropertyRef Name="Scrape_id" />
+            </Principal>
+            <Dependent Role="ScrapeDetail1">
+              <PropertyRef Name="Scrape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataBaseMasModelStoreContainer">
+          <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfirmDetailPay" EntityType="Self.ConfirmDetailPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Datapay" EntityType="Self.Datapay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pay" EntityType="Self.Pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaysupDetail" EntityType="Self.PaysupDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceiveProduct" EntityType="Self.ReceiveProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="receiveProductType" EntityType="Self.receiveProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaDataSaleDetaille" EntityType="Self.SaDataSaleDetaille" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScrapeDetail" EntityType="Self.ScrapeDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SentProduct" EntityType="Self.SentProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SentProductDetail" EntityType="Self.SentProductDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TakeGoods" EntityType="Self.TakeGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TakeGoodsDetail" EntityType="Self.TakeGoodsDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLoging" EntityType="Self.UserLoging" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserLoging].[ID] AS [ID], 
+    [UserLoging].[Username] AS [Username], 
+    [UserLoging].[Passworduser] AS [Passworduser]
+    FROM [dbo].[UserLoging] AS [UserLoging]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_PaysupDetail_TakeGoods" Association="Self.FK_PaysupDetail_TakeGoods">
+            <End Role="PaysupDetail" EntitySet="PaysupDetail" />
+            <End Role="PaysupDetail1" EntitySet="PaysupDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScrapeDetail_ScrapeDetail" Association="Self.FK_ScrapeDetail_ScrapeDetail">
+            <End Role="ScrapeDetail" EntitySet="ScrapeDetail" />
+            <End Role="ScrapeDetail1" EntitySet="ScrapeDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataBaseMasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="A_id" />
+          </Key>
+          <Property Name="A_id" Type="Int32" Nullable="false" />
+          <Property Name="A_name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="A_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="A_tel" Type="Int32" />
+          <Property Name="A_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ConfirmDetailPay">
+          <Key>
+            <PropertyRef Name="P_id" />
+          </Key>
+          <Property Name="P_id" Type="Int32" Nullable="false" />
+          <Property Name="S_id" Type="Int32" />
+          <Property Name="Con_det_nameBank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Con_det_number" Type="Int32" />
+          <Property Name="Con_det_manney" Type="Int32" />
+          <Property Name="Con_det_Date" Type="DateTime" Precision="3" />
+          <Property Name="Con_det_picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Datapay">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="Int32" Nullable="false" />
+          <Property Name="E_Id" Type="Int32" />
+          <Property Name="a_Id" Type="Int32" />
+          <Property Name="p_monney" Type="Int32" />
+          <Property Name="p_dat" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="E_id" />
+          </Key>
+          <Property Name="E_id" Type="Int32" Nullable="false" />
+          <Property Name="E_name" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="E_address" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="E_tel" Type="Int32" />
+          <Property Name="E_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="E_User" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="E_pwd" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="P_id" />
+          </Key>
+          <Property Name="P_id" Type="Int32" Nullable="false" />
+          <Property Name="S_id" Type="Int32" />
+          <Property Name="C_id" Type="Int32" />
+          <Property Name="p_manney" Type="Int32" />
+          <Property Name="p_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PaysupDetail">
+          <Key>
+            <PropertyRef Name="pay_id" />
+          </Key>
+          <Property Name="pay_id" Type="Int32" Nullable="false" />
+          <Property Name="Tak_id" Type="Int32" />
+          <Property Name="P_id" Type="Int32" />
+          <Property Name="Pro_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pay_det_pricenum" Type="Int32" />
+          <Property Name="Pay_det_sum" Type="Int32" />
+          <NavigationProperty Name="PaysupDetail1" Relationship="Self.FK_PaysupDetail_TakeGoods" FromRole="PaysupDetail" ToRole="PaysupDetail1" />
+          <NavigationProperty Name="PaysupDetail2" Relationship="Self.FK_PaysupDetail_TakeGoods" FromRole="PaysupDetail1" ToRole="PaysupDetail" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="P_id" />
+          </Key>
+          <Property Name="P_id" Type="Int32" Nullable="false" />
+          <Property Name="P_name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="P_Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="P_Price" Type="Int32" />
+          <Property Name="P_Size" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P_Sale" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P_Weight" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="PT_id" />
+          </Key>
+          <Property Name="PT_id" Type="Int32" Nullable="false" />
+          <Property Name="PT_name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PT_Weight" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReceiveProduct">
+          <Key>
+            <PropertyRef Name="Re_pro_id" />
+          </Key>
+          <Property Name="Re_pro_id" Type="Int32" Nullable="false" />
+          <Property Name="E_id" Type="Int32" />
+          <Property Name="A_id" Type="Int32" />
+          <Property Name="Re_pro_net" Type="Int32" />
+          <Property Name="Re_pro_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="receiveProductType">
+          <Key>
+            <PropertyRef Name="Re_pro_id" />
+          </Key>
+          <Property Name="Re_pro_id" Type="Int32" Nullable="false" />
+          <Property Name="P_id" Type="Int32" />
+          <Property Name="Re_pro_amount" Type="Int32" />
+          <Property Name="Re_price" Type="Decimal" Precision="12" Scale="2" />
+        </EntityType>
+        <EntityType Name="SaDataSaleDetaille">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="Int32" Nullable="false" />
+          <Property Name="P_id" Type="Int32" />
+          <Property Name="Sd_amount" Type="Int32" />
+          <Property Name="Sale_total" Type="Int32" />
+          <Property Name="Sale_exp" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="Int32" Nullable="false" />
+          <Property Name="E_id" Type="Int32" />
+          <Property Name="C_id" Type="Int32" />
+          <Property Name="S_net" Type="Int32" />
+          <Property Name="S_date" Type="DateTime" Precision="3" />
+          <Property Name="Sd_pay" Type="DateTime" Precision="3" />
+          <Property Name="Sd_date" Type="DateTime" Precision="3" />
+          <Property Name="Sd_amount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ScrapeDetail">
+          <Key>
+            <PropertyRef Name="Scrape_id" />
+          </Key>
+          <Property Name="Scrape_id" Type="Int32" Nullable="false" />
+          <Property Name="P_id" Type="Int32" />
+          <Property Name="Scrape_amount" Type="Int32" />
+          <Property Name="Scrape_reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ScrapeDetail1" Relationship="Self.FK_ScrapeDetail_ScrapeDetail" FromRole="ScrapeDetail" ToRole="ScrapeDetail1" />
+          <NavigationProperty Name="ScrapeDetail2" Relationship="Self.FK_ScrapeDetail_ScrapeDetail" FromRole="ScrapeDetail1" ToRole="ScrapeDetail" />
+        </EntityType>
+        <EntityType Name="SentProduct">
+          <Key>
+            <PropertyRef Name="Sent_id" />
+          </Key>
+          <Property Name="Sent_id" Type="Int32" Nullable="false" />
+          <Property Name="A_Id" Type="Int32" />
+          <Property Name="C_id" Type="Int32" />
+          <Property Name="Tra_Total" Type="Int32" />
+          <Property Name="Sent_pay" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sent_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SentProductDetail">
+          <Key>
+            <PropertyRef Name="Sent_id" />
+          </Key>
+          <Property Name="Sent_id" Type="Int32" Nullable="false" />
+          <Property Name="P_id" Type="Int32" />
+          <Property Name="Pt_id" Type="Int32" />
+          <Property Name="Pro_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sen_pro_number" Type="Int32" />
+          <Property Name="Sen_pro_total" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TakeGood">
+          <Key>
+            <PropertyRef Name="Tak_id" />
+          </Key>
+          <Property Name="Tak_id" Type="Int32" Nullable="false" />
+          <Property Name="a_Id" Type="Int32" />
+          <Property Name="E_Id" Type="Int32" />
+          <Property Name="Tak_Sum" Type="Int32" />
+          <Property Name="Tak_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TakeGoodsDetail">
+          <Key>
+            <PropertyRef Name="Tak_id" />
+          </Key>
+          <Property Name="Tak_id" Type="Int32" Nullable="false" />
+          <Property Name="P_id" Type="Int32" />
+          <Property Name="Pro_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tak_Det_num" Type="Int32" />
+          <Property Name="Tak_Det_Total" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_PaysupDetail_TakeGoods">
+          <End Role="PaysupDetail" Type="Self.PaysupDetail" Multiplicity="0..1" />
+          <End Role="PaysupDetail1" Type="Self.PaysupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaysupDetail">
+              <PropertyRef Name="pay_id" />
+            </Principal>
+            <Dependent Role="PaysupDetail1">
+              <PropertyRef Name="Tak_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScrapeDetail_ScrapeDetail">
+          <End Role="ScrapeDetail" Type="Self.ScrapeDetail" Multiplicity="1" />
+          <End Role="ScrapeDetail1" Type="Self.ScrapeDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ScrapeDetail">
+              <PropertyRef Name="Scrape_id" />
+            </Principal>
+            <Dependent Role="ScrapeDetail1">
+              <PropertyRef Name="Scrape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Agents" EntityType="Self.Agent" />
+          <EntitySet Name="ConfirmDetailPays" EntityType="Self.ConfirmDetailPay" />
+          <EntitySet Name="Datapays" EntityType="Self.Datapay" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Pays" EntityType="Self.Pay" />
+          <EntitySet Name="PaysupDetails" EntityType="Self.PaysupDetail" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+          <EntitySet Name="ReceiveProducts" EntityType="Self.ReceiveProduct" />
+          <EntitySet Name="receiveProductTypes" EntityType="Self.receiveProductType" />
+          <EntitySet Name="SaDataSaleDetailles" EntityType="Self.SaDataSaleDetaille" />
+          <EntitySet Name="Sales" EntityType="Self.Sale" />
+          <EntitySet Name="ScrapeDetails" EntityType="Self.ScrapeDetail" />
+          <EntitySet Name="SentProducts" EntityType="Self.SentProduct" />
+          <EntitySet Name="SentProductDetails" EntityType="Self.SentProductDetail" />
+          <EntitySet Name="TakeGoods" EntityType="Self.TakeGood" />
+          <EntitySet Name="TakeGoodsDetails" EntityType="Self.TakeGoodsDetail" />
+          <AssociationSet Name="FK_PaysupDetail_TakeGoods" Association="Self.FK_PaysupDetail_TakeGoods">
+            <End Role="PaysupDetail" EntitySet="PaysupDetails" />
+            <End Role="PaysupDetail1" EntitySet="PaysupDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScrapeDetail_ScrapeDetail" Association="Self.FK_ScrapeDetail_ScrapeDetail">
+            <End Role="ScrapeDetail" EntitySet="ScrapeDetails" />
+            <End Role="ScrapeDetail1" EntitySet="ScrapeDetails" />
+          </AssociationSet>
+          <EntitySet Name="Customers" EntityType="DataBaseMasModel.Customer" />
+          <EntitySet Name="UserLogings" EntityType="DataBaseMasModel.UserLoging" />
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_pwd" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+          <Property Name="C_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_sex" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="C_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_tel" Type="Int32" />
+          <Property Name="C_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserLoging">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Passworduser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataBaseMasModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Agents">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="A_id" ColumnName="A_id" />
+                <ScalarProperty Name="A_name" ColumnName="A_name" />
+                <ScalarProperty Name="A_address" ColumnName="A_address" />
+                <ScalarProperty Name="A_tel" ColumnName="A_tel" />
+                <ScalarProperty Name="A_Email" ColumnName="A_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfirmDetailPays">
+            <EntityTypeMapping TypeName="DataBaseMasModel.ConfirmDetailPay">
+              <MappingFragment StoreEntitySet="ConfirmDetailPay">
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="Con_det_nameBank" ColumnName="Con_det_nameBank" />
+                <ScalarProperty Name="Con_det_number" ColumnName="Con_det_number" />
+                <ScalarProperty Name="Con_det_manney" ColumnName="Con_det_manney" />
+                <ScalarProperty Name="Con_det_Date" ColumnName="Con_det_Date" />
+                <ScalarProperty Name="Con_det_picture" ColumnName="Con_det_picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Datapays">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Datapay">
+              <MappingFragment StoreEntitySet="Datapay">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+                <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+                <ScalarProperty Name="p_monney" ColumnName="p_monney" />
+                <ScalarProperty Name="p_dat" ColumnName="p_dat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="E_id" ColumnName="E_id" />
+                <ScalarProperty Name="E_name" ColumnName="E_name" />
+                <ScalarProperty Name="E_address" ColumnName="E_address" />
+                <ScalarProperty Name="E_tel" ColumnName="E_tel" />
+                <ScalarProperty Name="E_Email" ColumnName="E_Email" />
+                <ScalarProperty Name="E_User" ColumnName="E_User" />
+                <ScalarProperty Name="E_pwd" ColumnName="E_pwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pays">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Pay">
+              <MappingFragment StoreEntitySet="Pay">
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="C_id" ColumnName="C_id" />
+                <ScalarProperty Name="p_manney" ColumnName="p_manney" />
+                <ScalarProperty Name="p_Date" ColumnName="p_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaysupDetails">
+            <EntityTypeMapping TypeName="DataBaseMasModel.PaysupDetail">
+              <MappingFragment StoreEntitySet="PaysupDetail">
+                <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+                <ScalarProperty Name="Tak_id" ColumnName="Tak_id" />
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="Pro_name" ColumnName="Pro_name" />
+                <ScalarProperty Name="Pay_det_pricenum" ColumnName="Pay_det_pricenum" />
+                <ScalarProperty Name="Pay_det_sum" ColumnName="Pay_det_sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="P_name" ColumnName="P_name" />
+                <ScalarProperty Name="P_Pic" ColumnName="P_Pic" />
+                <ScalarProperty Name="P_Detail" ColumnName="P_Detail" />
+                <ScalarProperty Name="P_Price" ColumnName="P_Price" />
+                <ScalarProperty Name="P_Size" ColumnName="P_Size" />
+                <ScalarProperty Name="P_Sale" ColumnName="P_Sale" />
+                <ScalarProperty Name="P_Weight" ColumnName="P_Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="DataBaseMasModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="PT_id" ColumnName="PT_id" />
+                <ScalarProperty Name="PT_name" ColumnName="PT_name" />
+                <ScalarProperty Name="PT_Weight" ColumnName="PT_Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceiveProducts">
+            <EntityTypeMapping TypeName="DataBaseMasModel.ReceiveProduct">
+              <MappingFragment StoreEntitySet="ReceiveProduct">
+                <ScalarProperty Name="Re_pro_id" ColumnName="Re_pro_id" />
+                <ScalarProperty Name="E_id" ColumnName="E_id" />
+                <ScalarProperty Name="A_id" ColumnName="A_id" />
+                <ScalarProperty Name="Re_pro_net" ColumnName="Re_pro_net" />
+                <ScalarProperty Name="Re_pro_date" ColumnName="Re_pro_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="receiveProductTypes">
+            <EntityTypeMapping TypeName="DataBaseMasModel.receiveProductType">
+              <MappingFragment StoreEntitySet="receiveProductType">
+                <ScalarProperty Name="Re_pro_id" ColumnName="Re_pro_id" />
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="Re_pro_amount" ColumnName="Re_pro_amount" />
+                <ScalarProperty Name="Re_price" ColumnName="Re_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaDataSaleDetailles">
+            <EntityTypeMapping TypeName="DataBaseMasModel.SaDataSaleDetaille">
+              <MappingFragment StoreEntitySet="SaDataSaleDetaille">
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="Sd_amount" ColumnName="Sd_amount" />
+                <ScalarProperty Name="Sale_total" ColumnName="Sale_total" />
+                <ScalarProperty Name="Sale_exp" ColumnName="Sale_exp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="E_id" ColumnName="E_id" />
+                <ScalarProperty Name="C_id" ColumnName="C_id" />
+                <ScalarProperty Name="S_net" ColumnName="S_net" />
+                <ScalarProperty Name="S_date" ColumnName="S_date" />
+                <ScalarProperty Name="Sd_pay" ColumnName="Sd_pay" />
+                <ScalarProperty Name="Sd_date" ColumnName="Sd_date" />
+                <ScalarProperty Name="Sd_amount" ColumnName="Sd_amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScrapeDetails">
+            <EntityTypeMapping TypeName="DataBaseMasModel.ScrapeDetail">
+              <MappingFragment StoreEntitySet="ScrapeDetail">
+                <ScalarProperty Name="Scrape_id" ColumnName="Scrape_id" />
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="Scrape_amount" ColumnName="Scrape_amount" />
+                <ScalarProperty Name="Scrape_reason" ColumnName="Scrape_reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SentProducts">
+            <EntityTypeMapping TypeName="DataBaseMasModel.SentProduct">
+              <MappingFragment StoreEntitySet="SentProduct">
+                <ScalarProperty Name="Sent_id" ColumnName="Sent_id" />
+                <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+                <ScalarProperty Name="C_id" ColumnName="C_id" />
+                <ScalarProperty Name="Tra_Total" ColumnName="Tra_Total" />
+                <ScalarProperty Name="Sent_pay" ColumnName="Sent_pay" />
+                <ScalarProperty Name="Sent_Date" ColumnName="Sent_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SentProductDetails">
+            <EntityTypeMapping TypeName="DataBaseMasModel.SentProductDetail">
+              <MappingFragment StoreEntitySet="SentProductDetail">
+                <ScalarProperty Name="Sent_id" ColumnName="Sent_id" />
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="Pt_id" ColumnName="Pt_id" />
+                <ScalarProperty Name="Pro_name" ColumnName="Pro_name" />
+                <ScalarProperty Name="Sen_pro_number" ColumnName="Sen_pro_number" />
+                <ScalarProperty Name="Sen_pro_total" ColumnName="Sen_pro_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TakeGoods">
+            <EntityTypeMapping TypeName="DataBaseMasModel.TakeGood">
+              <MappingFragment StoreEntitySet="TakeGoods">
+                <ScalarProperty Name="Tak_id" ColumnName="Tak_id" />
+                <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+                <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+                <ScalarProperty Name="Tak_Sum" ColumnName="Tak_Sum" />
+                <ScalarProperty Name="Tak_date" ColumnName="Tak_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TakeGoodsDetails">
+            <EntityTypeMapping TypeName="DataBaseMasModel.TakeGoodsDetail">
+              <MappingFragment StoreEntitySet="TakeGoodsDetail">
+                <ScalarProperty Name="Tak_id" ColumnName="Tak_id" />
+                <ScalarProperty Name="P_id" ColumnName="P_id" />
+                <ScalarProperty Name="Pro_name" ColumnName="Pro_name" />
+                <ScalarProperty Name="Tak_Det_num" ColumnName="Tak_Det_num" />
+                <ScalarProperty Name="Tak_Det_Total" ColumnName="Tak_Det_Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DataBaseMasModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="C_email" ColumnName="C_email" />
+                <ScalarProperty Name="C_tel" ColumnName="C_tel" />
+                <ScalarProperty Name="C_address" ColumnName="C_address" />
+                <ScalarProperty Name="C_sex" ColumnName="C_sex" />
+                <ScalarProperty Name="C_name" ColumnName="C_name" />
+                <ScalarProperty Name="C_pwd" ColumnName="C_pwd" />
+                <ScalarProperty Name="C_id" ColumnName="C_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogings">
+            <EntityTypeMapping TypeName="DataBaseMasModel.UserLoging">
+              <MappingFragment StoreEntitySet="UserLoging">
+                <ScalarProperty Name="Passworduser" ColumnName="Passworduser" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

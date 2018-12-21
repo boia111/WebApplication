@@ -1,0 +1,135 @@
+﻿@model WebApplication1.Models.Employee
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>เพิ่มข้อมูลพนักงาน</h2>
+<div>
+    @*/@Html.ActionLink("Back to List", "Index")*@
+    <a class="btn btn btn-info" style="margin-bottom:20px" @Html.ActionLink("กลับไปหน้าแรก", "Index")</a>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group  col-xs-12">
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_id,  new { @class = " col-lg-4 control-label" })
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.E_id, new {@class = "form-control", placeholder = "", type = "number", @maxlength = 10, id = "txtE_id", style = "width: 500px", rows = "3" } )
+                    @Html.ValidationMessageFor(model => model.E_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_name,  new { @class = "col-lg-4 control-label" })
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.E_name,   new { @class = "form-control" , @maxlength = 100, id = "txtE_name", @placeholder = "", @type = "text", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.E_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-lg-12">
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_tel, new { @class = "control-label col-lg-4 " })
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.E_tel,    new {  @class = "form-control", @maxlength = 10, id = "txtE_tel", @type = "number", @placeholder = "", @tabindex = 1 , style = "width: 500px", rows = "3" } )
+                    @Html.ValidationMessageFor(model => model.E_tel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_Email, new { @class = "control-label col-lg-4 "  } )
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.E_Email,    new {  @class = "form-control" , @type = "email", @maxlength = 100, id = "txtaddress",  @placeholder = "",  @tabindex = 1 , style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.E_Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-lg-12">
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_User,  new { @class = "control-label col-lg-4 " })
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.E_User,    new { @class = "form-control", @type = "text", @maxlength = 50, id = "txtE_User", @placeholder = "", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.E_User, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_pwd,  new { @class = "control-label col-lg-4 " })
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextBoxFor(model => model.E_pwd,  new { @class = "form-control" , @maxlength = 100, style = "width: 500px", rows = "3" , @type = "text", @tabindex = 1, id = "txtE_pwd" } )
+                    @Html.ValidationMessageFor(model => model.E_pwd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-lg-12">
+            <div class="col-xs-6">
+                @Html.LabelFor(model => model.E_address, new { @class = "col-lg-4 control-label" })
+                <div class="col-xs-12 col-lg-4">
+                    @Html.TextAreaFor(model => Model.E_address, new { @class = "form-control input-sm", id = "txtaddress", maxlength = 120, @placeholder = "", @type = "text", @tabindex = 1, style = "width: 500px", rows = "3" })
+                    @Html.ValidationMessageFor(model => model.E_address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group  col-xs-12 text-center">
+                <input type="submit" value="บันทึก" class="btn btn-success btn-rounded" />
+                <input type="reset" id="reset" value="ยกเลิก" class="btn btn-danger btn-rounded" />
+                @*<button class="btn btn-success btn-rounded" type="submit" id="btnSubmit" tabindex="6"><i class="glyphicon glyphicon-floppy-disk"></i> บันทึก</button>
+                    <button class="btn btn-danger btn-rounded" type="button" id="btnClear" onclick="FunReloadPage('@Url.Action("MST001_E", "MST001")');" tabindex="6"><i class="glyphicon glyphicon-refresh"></i> ล้างข้อมูล</button>*@
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+        //set maxlength
+        $('#txtE_id').keypress(function () {
+            if (this.value.length >= 10)
+                return false;
+        });
+        $('#txtE_name').keypress(function () {
+            if (this.value.length >= 100)
+                return false;
+        });
+        $('#txtaddress').keypress(function () {
+            if (this.value.length >= 120)
+                return false;
+        });
+        $('#txtE_Email').keypress(function () {
+            if (this.value.length >= 100)
+                return false;
+        });
+        $('#txtE_User').keypress(function () {
+            if (this.value.length >= 50)
+                return false;
+        });
+        $('#txtE_pwd').keypress(function () {
+            if (this.value.length >= 100)
+                return false;
+        });
+        $('#txtE_tel').keypress(function () {
+            if (this.value.length >= 10)
+                return false;
+        });
+     
+        $("#reset").click(function () {
+            $("#maincont").load("/Employee/Create/");
+        });
+
+        });
+
+    </script>
+
+
+}

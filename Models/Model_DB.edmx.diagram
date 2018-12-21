@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d3099433ec548d7ab5f6108ac3ca4a9" Name="Diagram1">
+        <EntityTypeShape EntityType="DataBaseMasModel.Agent" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.ConfirmDetailPay" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.Datapay" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.Employee" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.Pay" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.PaysupDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.Product" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.ProductType" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.ReceiveProduct" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.receiveProductType" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.SaDataSaleDetaille" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.Sale" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.ScrapeDetail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.SentProduct" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.SentProductDetail" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.TakeGood" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseMasModel.TakeGoodsDetail" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="DataBaseMasModel.FK_PaysupDetail_TakeGoods" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseMasModel.FK_ScrapeDetail_ScrapeDetail" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DataBaseMasModel.Customer" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DataBaseMasModel.UserLoging" Width="1.5" PointX="0.75" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
